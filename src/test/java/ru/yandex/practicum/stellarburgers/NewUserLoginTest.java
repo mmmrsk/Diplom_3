@@ -40,8 +40,8 @@ public class NewUserLoginTest extends CommonTest {
     }
 
     @Test
-    @DisplayName("Check registering a new user with an incorrect pass")
-    public void registerNewUserWithIncorrectPassFails() {
+    @DisplayName("User registration with incorrect pass")
+    public void registrationUserWithIncorrectPass() {
         userModel.setPassword("five");
         final boolean incorrectPasswordWarningDisplayed = Selenide.open(MainPage.URL, MainPage.class)
                 .clickLoginButton()

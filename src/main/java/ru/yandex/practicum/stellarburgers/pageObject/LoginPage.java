@@ -72,7 +72,7 @@ public class LoginPage {
         loginButton.click();
         return Selenide.page(MainPage.class);
     }
-    // етод для отображения надписи входа
+    // Метод для отображения надписи входа
     @Step("User login text is loaded")
     public boolean isUserLoginTextDisplayed() {
         return userLoginText.shouldBe(visible).isDisplayed();

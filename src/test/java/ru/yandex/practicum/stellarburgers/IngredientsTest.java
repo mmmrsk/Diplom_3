@@ -17,8 +17,8 @@ public class IngredientsTest extends CommonTest {
     private final String expected = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
 
     @Test
-    @DisplayName("Check the buns tab gets activated successfully")
-    public void checkBunsTabGetsActivatedSuccessfully() {
+    @DisplayName("Checking the buns tab")
+    public void checkingBunsTab() {
         final String actual = Selenide.open(MainPage.URL, MainPage.class)
                 .displayAvailableFillings()
                 .displayAvailableSauces()
@@ -28,8 +28,8 @@ public class IngredientsTest extends CommonTest {
     }
 
     @Test
-    @DisplayName("Check the sauces tab gets activated successfully")
-    public void checkSaucesTabGetsActivatedSuccessfully() {
+    @DisplayName("Checking the sauces tab")
+    public void checkingSaucesTab() {
         final String actual = Selenide.open(MainPage.URL, MainPage.class)
                 .displayAvailableFillings()
                 .displayAvailableBuns()
@@ -39,8 +39,8 @@ public class IngredientsTest extends CommonTest {
     }
 
     @Test
-    @DisplayName("Check the fillings tab gets activated successfully")
-    public void checkFillingsTabGetsActivatedSuccessfully() {
+    @DisplayName("Checking the fillings tab")
+    public void checkingFillingsTab() {
         final String actual = Selenide.open(MainPage.URL, MainPage.class)
                 .displayAvailableSauces()
                 .displayAvailableBuns()
