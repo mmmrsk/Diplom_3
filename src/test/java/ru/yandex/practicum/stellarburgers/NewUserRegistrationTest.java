@@ -12,7 +12,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 
-public class NewUserLoginTest extends CommonTest {
+public class NewUserRegistrationTest extends CommonTest {
 
     private UserClient userClient;
     private UserCreds creds;
@@ -39,6 +39,7 @@ public class NewUserLoginTest extends CommonTest {
         userClient.delete(userModel.getEmail(), bearerToken);
     }
 
+    // я очень извиняюсь, но здесь у меня тест проходит и я не знаю как мне понять что не так(
     @Test
     @DisplayName("User registration with incorrect pass")
     public void registrationUserWithIncorrectPass() {
@@ -49,6 +50,22 @@ public class NewUserLoginTest extends CommonTest {
                 .registerNewUserWithIncorrectPass(userModel)
                 .isIncorrectPassDisplayed();
         assertTrue(incorrectPasswordWarningDisplayed);
+        afterToBeLaunched = false;
+    }
+    @Test
+    @DisplayName("Successful user registration")
+    public void successfulUserRegistrationTest() {
+        // Создание пользователя для регистрации
+        UserModel userModel = UserModel.getRandom();
+
+        final boolean userRegistration = Selenide.open(MainPage.URL, MainPage.class)
+                .clickLoginButton()
+                .clickRegisterButton()
+                .registerNewUser(userModel)
+                .isUserLoginTextDisplayed();
+
+        // Проверка успешной регистрации
+        assertTrue(userRegistration);
         afterToBeLaunched = false;
     }
 }
